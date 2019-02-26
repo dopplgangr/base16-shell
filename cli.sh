@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+export BASE16_SHELL
+
 base16()(
 
   help()(
@@ -10,7 +12,7 @@ base16()(
     echo "$(ls $BASE16_SHELL/scripts)"
   )
 
-  loadtheme()(
+  load()(
     local dir=$BASE16_SHELL/scripts
     source "$dir/$1"
     put_template 0  $color00
@@ -88,13 +90,13 @@ base16()(
     fi
   )
 
-  savetheme()(
+  save()(
     cat << EOF > ~/.base16_theme
 $1
 EOF
   )
 
-  restoretheme()(
+  restore()(
     loadtheme "$(cat ~/.base16_theme)"
   )
 
