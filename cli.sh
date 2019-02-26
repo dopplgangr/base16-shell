@@ -7,7 +7,7 @@ base16()(
   )
 
   loadtheme()(
-    local dir=./scripts/
+    local dir=$BASE16_SHELL/scripts
     source "$dir/$1"
     put_template 0  $color00
     put_template 1  $color01
