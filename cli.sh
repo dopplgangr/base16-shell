@@ -6,6 +6,10 @@ base16()(
     echo "help"
   )
 
+  file_completion()(
+    echo "$(ls $BASE16_SHELL/scripts)"
+  )
+
   loadtheme()(
     local dir=$BASE16_SHELL/scripts
     source "$dir/$1"
