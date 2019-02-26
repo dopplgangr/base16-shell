@@ -8,10 +8,6 @@ base16()(
     echo "help"
   )
 
-  file_completion()(
-    echo "$(ls $BASE16_SHELL/scripts)"
-  )
-
   load()(
     local dir=$BASE16_SHELL/scripts
     source "$dir/$1"
@@ -97,7 +93,7 @@ EOF
   )
 
   restore()(
-    loadtheme "$(cat ~/.base16_theme)"
+    load "$(cat ~/.base16_theme)"
   )
 
   put_template()(
