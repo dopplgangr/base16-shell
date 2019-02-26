@@ -97,7 +97,7 @@ EOF
   )
 
   put_template()(
-    if [ "${TERM##[-.]*}" = "xterm" ]; then
+    if [ "${TERM%%[-.]*}" = "xterm" ]; then
       printf '\033]4;%d;rgb:%s\033\\' $@
     else
       printf '\033P\033]4;%d;rgb:%s\007\033\\' $@
@@ -105,7 +105,7 @@ EOF
   )
   
   put_template_var()(
-    if [ "${TERM##[-.]*}" = "xterm" ]; then
+    if [ "${TERM%%[-.]*}" = "xterm" ]; then
       printf '\033]%d;rgb:%s\033\\' $@
     else
       printf '\033P\033]%d;rgb:%s\007\033\\' $@
@@ -113,7 +113,7 @@ EOF
   )
   
   put_template_custom()(
-    if [ "${TERM##[-.]*}" = "xterm" ]; then
+    if [ "${TERM%%[-.]*}" = "xterm" ]; then
       printf '\033P\033]%s%s\007\033\\' $@
     else
       printf '\033]%s%s\033\\' $@
