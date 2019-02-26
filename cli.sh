@@ -97,15 +97,27 @@ EOF
   )
 
   put_template()(
-    printf '\033P\033]4;%d;rgb:%s\007\033\\' $@
+    if [ "${TERM##[-.]*}" = "xterm" ]; then
+      printf '\033]4;%d;rgb:%s\033\\' $@
+    else
+      printf '\033P\033]4;%d;rgb:%s\007\033\\' $@
+    fi
   )
   
   put_template_var()(
-    printf '\033P\033]%d;rgb:%s\007\033\\' $@
+    if [ "${TERM##[-.]*}" = "xterm" ]; then
+      printf '\033]%d;rgb:%s\033\\' $@
+    else
+      printf '\033P\033]%d;rgb:%s\007\033\\' $@
+    fi
   )
   
   put_template_custom()(
-    printf '\033P\033]%s%s\007\033\\' $@; 
+    if [ "${TERM##[-.]*}" = "xterm" ]; then
+      printf '\033P\033]%s%s\007\033\\' $@
+    else
+      printf '\033]%s%s\033\\' $@
+    fi
   )
 
   if isValidArg "$1"
