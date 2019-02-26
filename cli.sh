@@ -84,6 +84,16 @@ base16()(
     fi
   )
 
+  savetheme()(
+    cat << EOF > ~/.base16_theme
+$1
+EOF
+  )
+
+  restoretheme()(
+    loadtheme "$(cat ~/.base16_theme)"
+  )
+
   put_template()(
     printf '\033P\033]4;%d;rgb:%s\007\033\\' $@
   )
